@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
-@FeignClient("order-api")
+@FeignClient(value = "order")
 public interface OrderApi {
     ///负载均衡项目测试---restTemplate+ribbon
     @RequestMapping(method = RequestMethod.GET,value = "/getPort")

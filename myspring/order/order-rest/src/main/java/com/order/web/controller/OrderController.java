@@ -24,7 +24,7 @@ public class OrderController implements OrderApi {
 
     @RequestMapping("/getFeignClient")
     public String getFeignClient(){
-        return "feignClient:9012";
+        return "feignClient"+this.localPort;
     }
 
     @Override
