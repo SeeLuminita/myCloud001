@@ -19,11 +19,13 @@ public class OrderController implements OrderApi {
     @RequestMapping("/getPort")
     public String getPort() throws Exception{
         InetAddress inetAddress =  InetAddress.getLocalHost();
+        Thread.sleep(5000);
         return inetAddress.getHostAddress()+":"+this.localPort;
     }
 
     @RequestMapping("/getFeignClient")
-    public String getFeignClient(){
+    public String getFeignClient() throws Exception{
+        Thread.sleep(10000);
         return "feignClient"+this.localPort;
     }
 

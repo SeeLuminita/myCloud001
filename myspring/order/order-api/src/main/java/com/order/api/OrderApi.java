@@ -1,5 +1,6 @@
 package com.order.api;
 
+import com.order.api.fallback.OrderFallBack;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,7 +13,7 @@ public interface OrderApi {
     String getPort() throws Exception;
     //负载均衡项目测试---feign
     @RequestMapping(method = RequestMethod.GET,value = "/getFeignClient")
-    String getFeignClient();
+    String getFeignClient() throws Exception;
 
     //高并发项目测试--redis
     @RequestMapping(method = RequestMethod.GET,value = "/highRequest")

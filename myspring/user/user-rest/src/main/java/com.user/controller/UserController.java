@@ -1,13 +1,15 @@
-package com.example.user.controller;
+package com.user.controller;
 
 import com.order.api.OrderApi;
+import com.user.api.UserApi;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-public class UserController {
+public class UserController implements UserApi {
     @Autowired
     private RestTemplate restTemplate;
     @Autowired
@@ -27,8 +29,10 @@ public class UserController {
     }
     /**feign实现负载均衡，feign内部使用的就是ribbon的原理**/
     @RequestMapping("/getFeignReq")
-    public String getFeignReq(){
-        return orderApi.getFeignClient();
+    public String getFeignReq() throws Exception{
+        String a = orderApi.getFeignClient();
+        System.out.println("11111111");
+        return a;
     }
     @RequestMapping("/high")
     public String high(){
