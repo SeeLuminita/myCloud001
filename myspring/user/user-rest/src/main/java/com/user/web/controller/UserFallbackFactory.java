@@ -1,4 +1,4 @@
-package com.user.controller;
+package com.user.web.controller;
 
 import com.user.api.UserApi;
 import com.user.api.UserFallBack;

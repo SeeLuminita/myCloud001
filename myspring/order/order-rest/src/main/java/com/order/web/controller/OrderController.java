@@ -1,5 +1,6 @@
 package com.order.web.controller;
 
+import com.netflix.ribbon.proxy.annotation.Hystrix;
 import com.order.api.OrderApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,12 +18,15 @@ public class OrderController implements OrderApi {
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
     @RequestMapping("/getPort")
+    @Hy
     public String getPort() throws Exception{
         InetAddress inetAddress =  InetAddress.getLocalHost();
         Thread.sleep(5000);
         return inetAddress.getHostAddress()+":"+this.localPort;
     }
-
+    public String getPortError(){
+        return  "getPort发生熔断>>>>>error";
+    }
     @RequestMapping("/getFeignClient")
     public String getFeignClient() throws Exception{
         Thread.sleep(10000);

@@ -3,7 +3,7 @@ package com.order.api.fallback;
 import com.order.api.OrderApi;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class OrderFallBack implements OrderApi {
     @Override
     public String getPort() throws Exception {
@@ -12,7 +12,7 @@ public class OrderFallBack implements OrderApi {
 
     @Override
     public String getFeignClient() {
-        return  "error";
+        return  "getFeignClient>>请求被熔断>>返回：error";
     }
 
     @Override

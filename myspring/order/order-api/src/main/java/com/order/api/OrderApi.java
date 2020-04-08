@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
-@FeignClient(value = "order")
+@FeignClient(value = "order",fallback = OrderFallBack.class)
 public interface OrderApi {
     ///负载均衡项目测试---restTemplate+ribbon
     @RequestMapping(method = RequestMethod.GET,value = "/getPort")
