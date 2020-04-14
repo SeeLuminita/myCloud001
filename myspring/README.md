@@ -13,3 +13,6 @@
    2. 服务端的fallback指定类上要加上@Component注解
    3. 客户端启动类上的@SpringBootApplication注解的扫描包路径要加上fallback那个类所在包地址，加上后出现了扫不到客户端启动类子包下的bean，要将子包下的路径也添进去
    4. 客户端启动类上有多个可以扫描包的注解，作用不同，譬如@EnableFeignClients扫描feignClient的bean、@ComponentScan、@SpringBootApplication扫描所有的spring的bean等，当前版本2.1.13@SpringBootApplication已包含@ComponentScan
+**2020-04-14**
+1. 新建rabbitMQ-demo项目，实现发送邮件功能
+2. 还没有压测
